@@ -10,6 +10,7 @@ const NavBar = ({ loggedIn }) => {
       </select>
       <h1>DynamoVinyls</h1>
       <div className="buttons">
+        <a href="/vinyls">Vinyls</a>
         <a href="/login">Login</a>
         {loggedIn ? <a>Sign Out</a> : <a href="/signup">Sign Up</a>}
         {loggedIn ? <a href="/account">My Profile</a> : null}
