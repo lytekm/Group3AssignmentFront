@@ -1,38 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/navbar";
 import "../assets/vinyls.css";
 import AlbumCoverExample from "../assets/AlbumCoverExample.jpg";
+import config from "../config";
 
 const Vinyls = () => {
-return (
+  const [vinyls, setVinyls] = useState([]);
 
-    <><NavBar loggedIn={false} /><div className="all-cards">
-        <div className="card">
-            <img src={AlbumCoverExample} alt={"Songs From The Big Chair"} className="album-image" />
-            <h2 className="album-title">{"Songs From The Big Chair"}</h2>
-            <p className="album-singer">{"Tears For Fears"}</p>
-            <p className="album-category">{"80's"}</p>
-            <p className="album-price">{"$39.90"}</p>
-        </div>
+  useEffect(() => {
+    fetch(`${config.apiBaseUrl}/api/music`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setVinyls(data);
+      });
+  }, []);
 
-        <div className="card">
-            <img src={AlbumCoverExample} alt={"Songs From The Big Chair"} className="album-image" />
-            <h2 className="album-title">{"Songs From The Big Chair"}</h2>
-            <p className="album-singer">{"Tears For Fears"}</p>
-            <p className="album-category">{"80's"}</p>
-            <p className="album-price">{"$39.90"}</p>
-        </div>
-
-        <div className="card">
-            <img src={AlbumCoverExample} alt={"Songs From The Big Chair"} className="album-image" />
-            <h2 className="album-title">{"Songs From The Big Chair"}</h2>
-            <p className="album-singer">{"Tears For Fears"}</p>
-            <p className="album-category">{"80's"}</p>
-            <p className="album-price">{"$39.90"}</p>
-        </div>
-
-    </div></>
-);
+  return (
+    <>
+      <NavBar loggedIn={false} />
+      <div className="all-cards">
+        {vinyls.map((vinyl, index) => {
+          return (
+            <div className="card" key={index}>
+              <img
+                src={vinyl.image}
+                alt={"Album Cover"}
+                className="album-image"
+              />
+              <h2 className="album-title">{vinyl.title}</h2>
+              <p className="album-singer">{vinyl.singer}</p>
+              <p className="album-category">{vinyl.category}</p>
+              <p className="album-price">${vinyl.price}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 };
-  
-  export default Vinyls;
+
+export default Vinyls;
