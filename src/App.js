@@ -5,6 +5,7 @@ import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Vinyls from "./pages/vinyls";
 import Profile from "./pages/profile";
+import AdminPage from "./pages/adminpage";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/vinyls" element={<Vinyls />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );
