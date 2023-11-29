@@ -28,7 +28,7 @@ const NavBar = () => {
       </select>
       <h1>DynamoVinyls</h1>
       <div className="buttons">
-        <a href="/vinyls">Vinyls</a>
+        <Link to={"/vinyls"}>Vinyls</Link>
         {isLoggedIn ? (
           <>
             <Link to={"/profile"} className="profileBtn">

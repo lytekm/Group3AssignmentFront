@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode=development --port=3000",
+    "test": "webpack-dev-server --mode=production --port=3000",
     "dev": "react-scripts start"
   },
   "author": "",
