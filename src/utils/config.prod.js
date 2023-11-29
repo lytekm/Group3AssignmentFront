@@ -1,5 +1,5 @@
 const config = {
-  apiBaseUrl: null, // replace this with URL of backend hosting provider
+  apiBaseUrl: "https://dynamo-backend.onrender.com", // replace this with URL of backend hosting provider
 };
 
 export default config;
