@@ -12,9 +12,9 @@ const Homepage = () => {
         <div className="header">
           <img className="vinyl-img" src={Vynil} />
           <h1>Shop Vinyls Now At DynamoVinyls</h1>
-          <a href="/vinyls" className="shop-button">
+          <Link to={"/vinyls"} className="shop-button">
             Shop Now <img className="arrow" src={Arrow} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
