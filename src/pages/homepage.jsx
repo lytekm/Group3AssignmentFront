@@ -3,6 +3,7 @@ import NavBar from "../components/navbar";
 import "../assets/homepage.css";
 import Arrow from "../assets/arrow.svg";
 import Vynil from "../assets/vynil.png";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
